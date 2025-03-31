@@ -38,7 +38,7 @@ export const CourseContent: React.FC<CourseContentProps> = ({ content }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-2.5">
+    <div className="bg-white rounded-lg  p-2">
       <div className="mb-6 pb-4 border-b border-gray-200">
         <h1 className="text-3xl font-bold mb-2">{frontmatter.title}</h1>
         <div className="text-sm text-gray-600">
@@ -73,7 +73,7 @@ export const CourseContent: React.FC<CourseContentProps> = ({ content }) => {
             li: ({ node, ...props }) => <li className="ml-2 mb-1" {...props} />,
             code: CodeComponent as Components['code'],
             pre: ({ node, ...props }) => (
-              <pre className="bg-gray-800 rounded-md overflow-x-auto p-4 text-sm my-4" {...props} />
+              <pre className="rounded-md overflow-x-auto text-sm my-4" {...props} />
             ),
             blockquote: ({ node, ...props }) => (
               <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4 text-gray-700" {...props} />
