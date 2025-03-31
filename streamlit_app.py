@@ -24,7 +24,7 @@ import logging
 # Import the CoursePipeline from main.py
 sys.path.append(".")
 try:
-    from main import PROMPTS_DIR, OUTPUT_DIR, API_KEY_ENV_VAR
+    from api.genai import PROMPTS_DIR, OUTPUT_DIR, API_KEY_ENV_VAR
 except ImportError:
     st.error("Could not import from main.py. Make sure main.py is in the current directory.")
     PROMPTS_DIR = "prompts"
