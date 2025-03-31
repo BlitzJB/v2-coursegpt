@@ -6,11 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CourseGPT</title>
     <script>
-      // Initialize dark mode theme from localStorage
-      const savedTheme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = savedTheme || (prefersDark ? 'dark' : 'light');
-      document.documentElement.classList.add(theme);
+      // Initialize dark mode theme
+      (function() {
+        try {
+          // Read from localStorage
+          let savedTheme = localStorage.getItem('theme');
+          
+          // Check if the value is valid
+          if (savedTheme !== 'dark' && savedTheme !== 'light') {
+            // Use system preference if no valid saved theme
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            savedTheme = prefersDark ? 'dark' : 'light';
+            // Store in localStorage for next time
+            localStorage.setItem('theme', savedTheme);
+          }
+          
+          // Remove any existing theme classes
+          document.documentElement.classList.remove('dark', 'light');
+          
+          // Add the appropriate class
+          document.documentElement.classList.add(savedTheme);
+          
+          console.log('[Theme Initializer] Theme set to:', savedTheme);
+        } catch (e) {
+          console.error('[Theme Initializer] Error:', e);
+          // Fallback to light mode
+          document.documentElement.classList.add('light');
+        }
+      })();
     </script>
   </head>
   <body>
