@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Container from '../components/ui/Container';
 import CourseContentComponent from '../components/courses/CourseContent';
 import Breadcrumbs from '../components/navigation/Breadcrumbs';
@@ -12,7 +12,6 @@ const SubunitContentPage: React.FC = () => {
     unitFolder: string;
     subunitFile: string;
   }>();
-  const navigate = useNavigate();
   
   // Use custom hooks to fetch data
   const { course } = useCourse(courseFolder || '');
@@ -25,7 +24,7 @@ const SubunitContentPage: React.FC = () => {
   const currentSubunit = subunits.find(s => s.file === subunitFile);
   
   // Set document title
-  useDocumentTitle(content?.frontmatter.title || currentSubunit?.title || 'Lesson Content');
+  useDocumentTitle(content?.frontmatter.title || currentSubunit?.subunit_title || 'Lesson Content');
 
   if (loading) {
     return (
@@ -57,7 +56,7 @@ const SubunitContentPage: React.FC = () => {
     ? `Unit ${currentUnit.unit_number}: ${currentUnit.unit_title}` 
     : 'Unit';
   
-  const subunitTitle = content.frontmatter.title || currentSubunit?.title || 'Lesson';
+  const subunitTitle = content.frontmatter.title || currentSubunit?.subunit_title || 'Lesson';
 
   return (
     <Container className="py-8">

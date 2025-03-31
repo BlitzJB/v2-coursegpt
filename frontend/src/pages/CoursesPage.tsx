@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Course } from '../types/course';
 import Container from '../components/ui/Container';
 import CourseCard from '../components/courses/CourseCard';
 import useDocumentTitle from '../hooks/useDocumentTitle';

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { Course, Unit, Subunit, CourseContent } from '../../types/course';
+import React, { useState } from 'react';
 import Container from '../ui/Container';
 import CourseCard from './CourseCard';
 import UnitCard from './UnitCard';

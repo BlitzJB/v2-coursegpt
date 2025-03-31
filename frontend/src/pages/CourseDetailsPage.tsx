@@ -1,6 +1,5 @@
 import React from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
-import { Unit, Course } from '../types/course';
+import { useParams, useNavigate } from 'react-router-dom';
 import Container from '../components/ui/Container';
 import UnitCard from '../components/courses/UnitCard';
 import BackButton from '../components/navigation/BackButton';
