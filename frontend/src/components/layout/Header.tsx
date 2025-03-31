@@ -25,8 +25,8 @@ export const Header: React.FC = () => {
             </Link>
           </div>
           
-          <div className="flex items-center space-x-6">
-            <nav>
+          <div className="items-center space-x-6 flex">
+            <nav className="hidden md:flex">
               <ul className="flex space-x-6">
                 <li>
                   <Link to="/" className="hover:text-blue-200 transition-colors">Home</Link>
