@@ -184,8 +184,31 @@ class CourseCreator:
         with open(os.path.join(folder_path, "progress.json"), 'w') as f:
             json.dump(initial_progress, f, indent=2)
         
+        # Determine the correct Python command to use
+        python_cmd = "python"
+        try:
+            # Try to check if we're on Linux/Unix systems where python3 is common
+            if os.name == "posix":
+                # Check if python3 exists and is executable
+                try:
+                    python3_check = subprocess.run(
+                        ["which", "python3"], 
+                        capture_output=True, 
+                        text=True, 
+                        check=False
+                    )
+                    if python3_check.returncode == 0:
+                        python_cmd = "python3"
+                except Exception:
+                    # If the above check fails, try the platform module
+                    import platform
+                    if platform.system() == "Linux":
+                        python_cmd = "python3"
+        except Exception as e:
+            print(f"Error detecting Python command: {e}")
+        
         # Build the command to run main.py in the background
-        cmd = f'nohup python main.py --title "{safe_title}" --description "{safe_desc}" > course_generation.log 2>&1 &'
+        cmd = f'nohup {python_cmd} main.py --title "{safe_title}" --description "{safe_desc}" > course_generation.log 2>&1 &'
         
         # Execute the command
         try:
