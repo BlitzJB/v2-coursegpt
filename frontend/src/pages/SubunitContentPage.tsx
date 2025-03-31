@@ -29,7 +29,7 @@ const SubunitContentPage: React.FC = () => {
   if (loading) {
     return (
       <Container className="py-8">
-        <div className="text-center py-10">Loading content...</div>
+        <div className="text-center py-10 dark:text-white">Loading content...</div>
       </Container>
     );
   }
@@ -37,7 +37,7 @@ const SubunitContentPage: React.FC = () => {
   if (error) {
     return (
       <Container className="py-8">
-        <div className="text-center py-10 text-red-500">
+        <div className="text-center py-10 text-red-500 dark:text-red-400">
           Error loading content: {error.message}
         </div>
       </Container>
@@ -47,7 +47,7 @@ const SubunitContentPage: React.FC = () => {
   if (!content) {
     return (
       <Container className="py-8">
-        <div className="text-center py-10">Content not found</div>
+        <div className="text-center py-10 dark:text-white">Content not found</div>
       </Container>
     );
   }

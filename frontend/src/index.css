@@ -1,4 +1,62 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  html {
+    @apply transition-colors duration-200;
+  }
+  
+  html.dark {
+    @apply bg-gray-900 text-white;
+  }
+}
+
+/* Custom dark mode prose overrides */
+@layer components {
+  .dark .prose {
+    @apply text-gray-300;
+  }
+  
+  .dark .prose strong {
+    @apply text-white;
+  }
+  
+  .dark .prose h1,
+  .dark .prose h2,
+  .dark .prose h3,
+  .dark .prose h4,
+  .dark .prose h5,
+  .dark .prose h6 {
+    @apply text-white;
+  }
+  
+  .dark .prose code {
+    @apply text-gray-300 bg-gray-800;
+  }
+  
+  .dark .prose a {
+    @apply text-blue-400 hover:text-blue-300;
+  }
+  
+  .dark .prose blockquote {
+    @apply border-gray-700 text-gray-400;
+  }
+  
+  .dark .prose hr {
+    @apply border-gray-700;
+  }
+  
+  .dark .prose table {
+    @apply border-gray-700;
+  }
+  
+  .dark .prose thead {
+    @apply border-gray-700;
+  }
+  
+  .dark .prose tbody tr {
+    @apply border-gray-700;
+  }
+}

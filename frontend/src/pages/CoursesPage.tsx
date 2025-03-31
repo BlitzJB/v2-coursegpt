@@ -25,7 +25,7 @@ const CoursesPage: React.FC = () => {
   if (loading) {
     return (
       <Container className="py-8">
-        <div className="text-center py-10">Loading...</div>
+        <div className="text-center py-10 dark:text-white">Loading...</div>
       </Container>
     );
   }
@@ -33,7 +33,7 @@ const CoursesPage: React.FC = () => {
   if (error) {
     return (
       <Container className="py-8">
-        <div className="text-center py-10 text-red-500">
+        <div className="text-center py-10 text-red-500 dark:text-red-400">
           Error loading courses: {error.message}
         </div>
       </Container>
@@ -43,7 +43,7 @@ const CoursesPage: React.FC = () => {
   return (
     <Container className="py-8">
       <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
-        <h1 className="text-3xl font-bold mb-2 md:mb-0">Available Courses</h1>
+        <h1 className="text-3xl font-bold mb-2 md:mb-0 dark:text-white">Available Courses</h1>
         <button 
           onClick={handleCreateCourse}
           className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors flex items-center"
@@ -62,7 +62,7 @@ const CoursesPage: React.FC = () => {
       
       {courses.length === 0 ? (
         <div className="text-center py-10">
-          <p className="text-gray-600 mb-4">No courses available</p>
+          <p className="text-gray-600 dark:text-gray-300 mb-4">No courses available</p>
           <button 
             onClick={handleCreateCourse}
             className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"

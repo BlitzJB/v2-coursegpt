@@ -36,7 +36,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, onClick }) => {
     <Card onClick={() => onClick(course.folder)}>
       <div className="flex flex-col space-y-2">
         <div className="flex justify-between items-start">
-          <h3 className="text-lg font-semibold text-gray-900">{course.title}</h3>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{course.title}</h3>
           <div className="flex space-x-2">
             {getStatusBadge()}
             {course.difficulty_level && (
@@ -45,9 +45,9 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, onClick }) => {
           </div>
         </div>
         
-        <p className="text-sm text-gray-600 line-clamp-2">{course.description}</p>
+        <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2">{course.description}</p>
         
-        <div className="flex justify-between text-xs text-gray-500 mt-2">
+        <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mt-2">
           {course.estimated_duration && (
             <span>{course.estimated_duration}</span>
           )}

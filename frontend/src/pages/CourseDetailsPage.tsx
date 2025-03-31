@@ -34,7 +34,7 @@ const CourseDetailsPage: React.FC = () => {
   if (loading) {
     return (
       <Container className="py-8">
-        <div className="text-center py-10">Loading...</div>
+        <div className="text-center py-10 dark:text-white">Loading...</div>
       </Container>
     );
   }
@@ -42,7 +42,7 @@ const CourseDetailsPage: React.FC = () => {
   if (error) {
     return (
       <Container className="py-8">
-        <div className="text-center py-10 text-red-500">
+        <div className="text-center py-10 text-red-500 dark:text-red-400">
           Error loading course: {error.message}
         </div>
       </Container>
@@ -52,7 +52,7 @@ const CourseDetailsPage: React.FC = () => {
   if (!course) {
     return (
       <Container className="py-8">
-        <div className="text-center py-10">Course not found</div>
+        <div className="text-center py-10 dark:text-white">Course not found</div>
       </Container>
     );
   }
@@ -66,30 +66,30 @@ const CourseDetailsPage: React.FC = () => {
         ]}
       />
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6">
-        <h1 className="text-3xl font-bold mb-2 md:mb-0">{course.title}</h1>
+        <h1 className="text-3xl font-bold mb-2 md:mb-0 dark:text-white">{course.title}</h1>
         <BackButton onClick={handleBackClick} label="Back to Courses" />
       </div>
       
-      <div className="bg-white p-4 rounded shadow mb-6">
+      <div className="bg-white dark:bg-gray-800 p-4 rounded shadow dark:shadow-gray-700 mb-6 border border-gray-200 dark:border-gray-700">
         <div className="mb-4">
-          <h2 className="text-xl font-semibold mb-2">About this course</h2>
-          <p className="text-gray-700">{course.description}</p>
+          <h2 className="text-xl font-semibold mb-2 dark:text-white">About this course</h2>
+          <p className="text-gray-700 dark:text-gray-300">{course.description}</p>
         </div>
         {course.difficulty_level && (
           <div className="mb-2">
-            <span className="font-medium">Difficulty:</span> {course.difficulty_level}
+            <span className="font-medium dark:text-white">Difficulty:</span> <span className="dark:text-gray-300">{course.difficulty_level}</span>
           </div>
         )}
         {course.estimated_duration && (
           <div>
-            <span className="font-medium">Estimated Duration:</span> {course.estimated_duration}
+            <span className="font-medium dark:text-white">Estimated Duration:</span> <span className="dark:text-gray-300">{course.estimated_duration}</span>
           </div>
         )}
       </div>
       
-      <h2 className="text-2xl font-bold mb-4">Units</h2>
+      <h2 className="text-2xl font-bold mb-4 dark:text-white">Units</h2>
       {units.length === 0 ? (
-        <div className="text-center py-10">No units available</div>
+        <div className="text-center py-10 dark:text-gray-300">No units available</div>
       ) : (
         <div className="space-y-4">
           {units.map((unit, index) => (

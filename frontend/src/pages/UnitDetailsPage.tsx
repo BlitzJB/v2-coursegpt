@@ -32,7 +32,7 @@ const UnitDetailsPage: React.FC = () => {
   if (loading) {
     return (
       <Container className="py-8">
-        <div className="text-center py-10">Loading...</div>
+        <div className="text-center py-10 dark:text-white">Loading...</div>
       </Container>
     );
   }
@@ -40,7 +40,7 @@ const UnitDetailsPage: React.FC = () => {
   if (error) {
     return (
       <Container className="py-8">
-        <div className="text-center py-10 text-red-500">
+        <div className="text-center py-10 text-red-500 dark:text-red-400">
           Error loading subunits: {error.message}
         </div>
       </Container>
@@ -57,17 +57,17 @@ const UnitDetailsPage: React.FC = () => {
         ]}
       />
       
-      <h1 className="text-3xl font-bold mb-6">{unitTitle}</h1>
+      <h1 className="text-3xl font-bold mb-6 dark:text-white">{unitTitle}</h1>
       
       {currentUnit?.unit_description && (
-        <div className="bg-white p-4 rounded shadow mb-6">
-          <p className="text-gray-700">{currentUnit.unit_description}</p>
+        <div className="bg-white dark:bg-gray-800 p-4 rounded shadow dark:shadow-gray-700 mb-6 border border-gray-200 dark:border-gray-700">
+          <p className="text-gray-700 dark:text-gray-300">{currentUnit.unit_description}</p>
         </div>
       )}
 
-      <h2 className="text-2xl font-bold mb-4">Lessons</h2>
+      <h2 className="text-2xl font-bold mb-4 dark:text-white">Lessons</h2>
       {subunits.length === 0 ? (
-        <div className="text-center py-10">No lessons available for this unit</div>
+        <div className="text-center py-10 dark:text-gray-300">No lessons available for this unit</div>
       ) : (
         <div className="space-y-4">
           {subunits.map((subunit, index) => (
